@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Oefening1
 {
-    internal abstract class DierKlasse
+    internal abstract class Dier
     {
         public int Gewicht { get; set; }
 
@@ -17,14 +17,12 @@ namespace Oefening1
 
         private string Geluid { get; set; }
 
-        protected DierKlasse() 
+        protected Dier() 
         { 
             this.Gewicht = 0;
             Uitspraak="";
             
         }
-
- 
 
         public string Zegt(string uitspraak)
         {
@@ -33,63 +31,62 @@ namespace Oefening1
         }
 
 
-
     }
 
-    internal class Koe : DierKlasse
+    internal class Koe : Dier
     {
-        public SoundPlayer KoeGeluid = new SoundPlayer(@"C:\Users\llabe\desktop\visual studio\Opdracht2v2\Oefening1\bin\Debug\cow-moo1.wav");
+        public SoundPlayer boe = new SoundPlayer(@"C:\Users\llabe\desktop\visual studio\Opdracht2v2\Oefening1\bin\Debug\cow-moo1.wav");
         public Koe(int gewicht)
         {
             base.Gewicht = gewicht;
         }
 
-        public string GeluidMaken()
+        public string spreek()
         {
             
-            KoeGeluid.Play();
+            boe.Play();
             return base.Zegt("boe");
         }
 
         public override string ToString()
         {
-            return "Gewicht: " + Gewicht + "kg Uitspraak: " + GeluidMaken();
+            return "Gewicht: " + Gewicht + "kg Uitspraak: " + spreek();
         }
     }
 
-    internal class Slang : DierKlasse
+    internal class Slang : Dier
     {
-        public SoundPlayer SlangGeluid = new SoundPlayer(@"C:\Users\llabe\desktop\visual studio\Opdracht2v2\Oefening1\bin\Debug\snake_hissing.wav");
+        public SoundPlayer ssj = new SoundPlayer(@"C:\Users\llabe\desktop\visual studio\Opdracht2v2\Oefening1\bin\Debug\snake_hissing.wav");
         public Slang(int gewicht)
         {
             base.Gewicht = gewicht;
         }
 
-        public string GeluidMaken()
+        public string spreek()
         {
             
-            SlangGeluid.Play();
+            ssj.Play();
             return base.Zegt("ssj");
         }
 
         public override string ToString()
         {
-            return "Gewicht: " + Gewicht + "kg Uitspraak: " + GeluidMaken();
+            return "Gewicht: " + Gewicht + "kg Uitspraak: " + spreek();
         }
     }
 
-    internal class Varken : DierKlasse
+    internal class Varken : Dier
     {
-        public SoundPlayer VarkenGeluid = new SoundPlayer(@"C:\Users\llabe\desktop\visual studio\Opdracht2v2\Oefening1\bin\Debug\pig-2.wav");
+        public SoundPlayer groink = new SoundPlayer(@"C:\Users\llabe\desktop\visual studio\Opdracht2v2\Oefening1\bin\Debug\pig-2.wav");
         public Varken(int gewicht)
         {
             base.Gewicht = gewicht;
         }
 
-        public string GeluidMaken()
+        public string spreek()
         {
             
-            VarkenGeluid.Play();
+            groink.Play();
             return base.Zegt("groink");
 
         
@@ -97,7 +94,7 @@ namespace Oefening1
 
         public override string ToString()
         {
-            return "Gewicht: " + Gewicht + "kg Uitspraak: " + GeluidMaken();
+            return "Gewicht: " + Gewicht + "kg Uitspraak: " + spreek();
         }
     }
 
